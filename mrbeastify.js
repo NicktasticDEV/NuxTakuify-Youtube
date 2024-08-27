@@ -27,33 +27,85 @@ Myself = Ourselves
 
 function replaceText(text) 
 {
+    //Replaces every instance of the text no matter where it is
+    //Normal case
     text = text.replace(/I'm/g, "We're");
     text = text.replace(/I/g, "We");
     text = text.replace(/Me/g, "Us");
     text = text.replace(/My/g, "Our");
     text = text.replace(/Mine/g, "Ours");
     text = text.replace(/Myself/g, "Ourselves");
+    text = text.replace(/I've/g, "We've");
+
+    //Lower case
+    text = text.replace(/i'm/g, "we're");
+    text = text.replace(/i/g, "we");
+    text = text.replace(/me/g, "us");
+    text = text.replace(/my/g, "our");
+    text = text.replace(/mine/g, "ours");
+    text = text.replace(/myself/g, "ourselves");
+    text = text.replace(/i've/g, "we've");
+
+    //Upper case
+    text = text.replace(/I'M/g, "WE'RE");
+    text = text.replace(/I/g, "WE");
+    text = text.replace(/ME/g, "US");
+    text = text.replace(/MY/g, "OUR");
+    text = text.replace(/MINE/g, "OURS");
+    text = text.replace(/MYSELF/g, "OURSELVES");
+    text = text.replace(/I'VE/g, "WE'VE");
+
+    return text;
+}
+
+function replaceTextNormal(text)
+{
+    //Only replace text that is by itself and not part of a larger word
+    //Normal case
+    text = text.replace(/\bI'm\b/g, "We're");
+    text = text.replace(/\bI\b/g, "We");
+    text = text.replace(/\bMe\b/g, "Us");
+    text = text.replace(/\bMy\b/g, "Our");
+    text = text.replace(/\bMine\b/g, "Ours");
+    text = text.replace(/\bMyself\b/g, "Ourselves");
+    text = text.replace(/\bI've\b/g, "We've");
+
+    //Upper case
+    text = text.replace(/\bI'M\b/g, "WE'RE");
+    text = text.replace(/\bI\b/g, "WE");
+    text = text.replace(/\bME\b/g, "US");
+    text = text.replace(/\bMY\b/g, "OUR");
+    text = text.replace(/\bMINE\b/g, "OURS");
+    text = text.replace(/\bMYSELF\b/g, "OURSELVES");
+    text = text.replace(/\bI'VE\b/g, "WE'VE");
+
+    //Lower case
+    text = text.replace(/\bi'm\b/g, "we're");
+    text = text.replace(/\bi\b/g, "we");
+    text = text.replace(/\bme\b/g, "us");
+    text = text.replace(/\bmy\b/g, "our");
+    text = text.replace(/\bmine\b/g, "ours");
+    text = text.replace(/\bmyself\b/g, "ourselves");
+    text = text.replace(/\bi've\b/g, "we've");
+
     return text;
 }
 
 function replaceTitles() 
 {
+    //Only replace text that is by itself and not part of a larger word
     var titles = document.querySelectorAll("#video-title");
     titles.forEach(title => {
-        title.innerHTML = replaceText(title.innerHTML);
+        title.innerText = replaceTextNormal(title.innerText);
     });
 
-    /*
-    titles = document.querySelectorAll(".style-scope ytd-video-renderer");
-    titles.forEach(title => {
-        title.innerHTML = replaceText(title.innerHTML);
+    //Target formatted string
+    var titles2 = document.querySelectorAll("yt-formatted-string");
+    titles2.forEach(title => {
+        title.innerText = replaceTextNormal(title.innerText);
     });
 
-    titles = document.querySelectorAll(".style-scope ytd-watch-metadata");
-    titles.forEach(title => {
-        title.innerHTML = replaceText(title.innerHTML);
-    });
-    */
+
 }
     
 
