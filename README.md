@@ -1,5 +1,21 @@
 <div align = center>
 
+# NuxTakuify
+
+Hi! This is a modified version of the MrBeastify plugin. Along with changing the thumbnail, it replaces every instance of the words
+```
+I = We
+I'm = We're
+Me = Us
+My = Our
+Mine = Ours
+Myself = Ourselves
+```
+
+Get the extension here: https://chromewebstore.google.com/detail/youtube-nux-takuify/hpgodlgbdjfmcnacoglpalchaekfejia?authuser=0&hl=en&pli=1
+
+---
+
 # MrBeastify
 
 Is your browser experience boring? Are you having  
