@@ -1,11 +1,11 @@
 {
     "manifest_version": 2,
-    "name": "YouTube MrBeastify",
+    "name": "YouTube Nux Takuify",
     "version": "1.7.1",
     "icons": {
         "96": "icon.png"
     },
-    "description": "Modify YouTube thumbnails to include MrBeast",
+    "description": "Modify YouTube thumbnails to include Nux Taku",
     "browser_action": {
         "default_popup": "settings.html"
     },

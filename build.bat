@@ -64,6 +64,3 @@ echo Chromium zip folder created successfully.
 
 :: Cleanup
 if exist "%TEMP_FOLDER%" rmdir /s /q "%TEMP_FOLDER%"
-
-echo All operations completed successfully.
-pause

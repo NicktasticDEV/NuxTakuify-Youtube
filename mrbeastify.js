@@ -9,6 +9,56 @@ var extensionIsDisabled = false
 var appearChance = 1.00//%
 var flipChance = 0.25//%
 
+//Titles can be stored in the following
+//<yt-formatted-string id="video-title" class="style-scope ytd-rich-grid-media"> TITLE HERE </yt-formatted-string>
+//<yt-formatted-string class="style-scope ytd-video-renderer"> TITLE HERE </yt-formatted-string>
+//<yt-formatted-string force-default-style="" class="style-scope ytd-watch-metadata"> TITLE HERE </yt-formatted-string>
+
+
+//Replace the text in the titles with the following
+/*
+I = We
+I'm = We're
+Me = Us
+My = Our
+Mine = Ours
+Myself = Ourselves
+*/
+
+function replaceText(text) 
+{
+    text = text.replace(/I'm/g, "We're");
+    text = text.replace(/I/g, "We");
+    text = text.replace(/Me/g, "Us");
+    text = text.replace(/My/g, "Our");
+    text = text.replace(/Mine/g, "Ours");
+    text = text.replace(/Myself/g, "Ourselves");
+    return text;
+}
+
+function replaceTitles() 
+{
+    var titles = document.querySelectorAll("#video-title");
+    titles.forEach(title => {
+        title.innerHTML = replaceText(title.innerHTML);
+    });
+
+    /*
+    titles = document.querySelectorAll(".style-scope ytd-video-renderer");
+    titles.forEach(title => {
+        title.innerHTML = replaceText(title.innerHTML);
+    });
+
+    titles = document.querySelectorAll(".style-scope ytd-watch-metadata");
+    titles.forEach(title => {
+        title.innerHTML = replaceText(title.innerHTML);
+    });
+    */
+}
+    
+
+
+
 // Apply the overlay
 function applyOverlay(thumbnailElement, overlayImageURL, flip = false) {
     // Create a new img element for the overlay
@@ -21,6 +71,7 @@ function applyOverlay(thumbnailElement, overlayImageURL, flip = false) {
     overlayImage.style.transform = `translate(-50%, -50%) ${flip ? 'scaleX(-1)' : ''}`; // Center and flip the image
     overlayImage.style.zIndex = "0"; // Ensure overlay is on top but below the time indicator
     thumbnailElement.parentElement.insertBefore(overlayImage, thumbnailElement.nextSibling /*Makes sure the image doesn't cover any info, but still overlays the original thumbnail*/ );
+    replaceTitles();
 };
 
 function FindThumbnails() {
