@@ -12,6 +12,8 @@ Mine = Ours
 Myself = Ourselves
 ```
 
+Get the extension here: https://chromewebstore.google.com/detail/youtube-nux-takuify/hpgodlgbdjfmcnacoglpalchaekfejia?authuser=0&hl=en&pli=1
+
 ---
 
 # MrBeastify
